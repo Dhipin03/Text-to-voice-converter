@@ -8,9 +8,8 @@ def convert_to_audio():
     text = text_entry.get()
     if text:
         try:
-            # Create a gTTS object
             tts = gTTS(text=text, lang='en')
-            # Save the audio file as output.mp3
+           
             tts.save('output.mp3')
             messagebox.showinfo("Success", "Text converted to audio successfully!")
         except Exception as e:
@@ -20,7 +19,7 @@ def convert_to_audio():
 
 def play_audio():
     try:
-        # Load the audio file
+
         pygame.mixer.init()
         pygame.mixer.music.load('output.mp3')
         # Play the audio file
@@ -28,11 +27,10 @@ def play_audio():
     except Exception as e:
         messagebox.showerror("Error", f"An error occurred while playing audio: {str(e)}")
 
-# Create a GUI window
+
 root = tk.Tk()
 root.title("Text to Audio Converter")
 
-# Create a text entry field
 text_entry = tk.Entry(root, width=40)
 text_entry.pack(pady=20)
 
